@@ -4,7 +4,7 @@ def find_empty_space(sudokutable):
         for col in range (0,9):
             if sudokutable[row][col] == 0:
                 return row , col
-    return None , None 
+    return None , None #If no spaces are empty return None, i.e, table has been solved.
 
 #Checks if the guess is valid to be in the row and column
 def val_checker(sudokutable,guess,row ,col):
@@ -45,11 +45,14 @@ def sudoku_solver(sudokutable):
         sudokutable[row][col] = 0
     return False 
 
+#This function prints the sudoku table
 def sudoku_visual(sudokutable):
     for row in sudokutable:
         for ele in row:
 	    print(ele)
 	print('\n')
+	
+#Code Run
 s = [[0,0,7, 0,0,0, 0,1,5], [0,0,0, 3,9,7, 0,0,0], [0,6,2, 0,1,0, 4,0,9],[0,2,0, 0,0,1, 5,4,3],[7,0,0, 4,0,9, 0,0,1], [4,8,1, 2,0,0, 0,6,0], [9,0,6, 0,2,0, 7,3,0], [0,0,0, 9,8,4, 0,0,0],[1,5,0, 0,0,0, 2,0,0]]
 print(sudoku_solver(s))
 print(s)
